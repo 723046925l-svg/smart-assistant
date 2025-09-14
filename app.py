@@ -3,7 +3,7 @@ from transformers import pipeline
 
 @st.cache_resource
 def load_bot():
-    return pipeline("text-generation", model="microsoft/DialoGPT-medium")
+    return pipeline("text-generation", model="gpt2")
 
 bot = load_bot()
 
@@ -52,3 +52,4 @@ if st.button("إرسال"):
 
     else:
         st.write("🤖 المساعد:", bot(user_input, max_length=100, num_return_sequences=1)[0]['generated_text'].replace(user_input, "").strip())
+
